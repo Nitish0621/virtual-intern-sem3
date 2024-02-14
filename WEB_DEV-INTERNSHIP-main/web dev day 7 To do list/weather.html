@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #weather-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .city-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Weather App</h1>
+
+    <div id="weather-container"></div>
+
+    <script>
+        const apiKey = '09e2eccaf46f369e1d3796ed0f5fad58'; // OpenWeatherMap API key
+
+        const cities = ['London', 'New York', 'Tokyo', 'Sydney'];
+
+        async function getWeather(city) {
+            const response = await fetch(`https://openweathermap.org//data/2.5/weather?q=${city}&appid=${apiKey}`);
+            const data = await response.json();
+            return data;
+        }
+
+        async function displayWeather() {
+            const weatherContainer = document.getElementById('weather-container');
+
+            for (const city of cities) {
+                const weatherData = await getWeather(city);
+
+                const cityCard = document.createElement('div');
+                cityCard.classList.add('city-card');
+
+                const cityName = document.createElement('h2');
+                cityName.textContent = city;
+
+                const temperature = document.createElement('p');
+                temperature.textContent = `Temperature: ${Math.round(weatherData.main.temp - 273.15)}°C`;
+
+                const weatherDescription = document.createElement('p');
+                weatherDescription.textContent = `Description: ${weatherData.weather[0].description}`;
+
+                cityCard.appendChild(cityName);
+                cityCard.appendChild(temperature);
+                cityCard.appendChild(weatherDescription);
+
+                weatherContainer.appendChild(cityCard);
+            }
+        }
+
+        displayWeather();
+    </script>
+</body>
+</html>

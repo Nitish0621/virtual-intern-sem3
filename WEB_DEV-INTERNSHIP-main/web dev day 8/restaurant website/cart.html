@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Cart - Restaurant Name</title>
+</head>
+<body>
+    <header>
+        <h1>Restaurant Name</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="order.html">Order</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+    <section class="cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button onclick="checkout()">Checkout</button>
+    </section>
+    <footer>
+        <p>&copy; 2024 Restaurant Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Sample cart data
+        const cartItems = [];
+
+        // Function to update the cart display
+        function updateCart() {
+            const cartList = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            // Clear previous items
+            cartList.innerHTML = '';
+
+            // Populate cart items
+            cartItems.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} x${item.quantity} - $${item.price.toFixed(2)}`;
+                cartList.appendChild(listItem);
+            });
+
+            // Calculate and display total
+            const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        // Function to add an item to the cart
+        function addToCart(itemName, itemPrice, quantity) {
+            const existingItem = cartItems.find(item => item.name === itemName);
+
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cartItems.push({
+                    name: itemName,
+                    price: itemPrice,
+                    quantity: quantity
+                });
+            }
+
+            updateCart();
+        }
+
+        // Function to handle checkout
+        function checkout() {
+            alert('Thank you for your order!');
+            // Additional logic for handling the checkout process can be added here
+        }
+
+        // Initial cart update
+        updateCart();
+    </script>
+</body>
+</html>

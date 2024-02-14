@@ -1,0 +1,65 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Basic styles */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  header {
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    margin: 0 1rem;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .main {
+    padding: 2rem;
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 4rem 0;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+  }
+  
+  .feature {
+    flex: 0 0 30%;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: #333;
+    color: #fff;
+  }
+  

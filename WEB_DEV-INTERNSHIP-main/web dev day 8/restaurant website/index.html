@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Restaurant Name</title>
+</head>
+<body>
+    <header>
+        <h1>Restaurant Name</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="order.html">Order</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+    <section class="hero">
+        <h2>Welcome to our Restaurant!</h2>
+        <p>Delicious food just a click away.</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 Restaurant Name. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelectorAll('nav a').forEach(item => {
+            item.addEventListener('click', () => {
+                alert(`You clicked on ${item.innerText}`);
+            });
+        });
+    </script>
+    
+</body>
+</html>

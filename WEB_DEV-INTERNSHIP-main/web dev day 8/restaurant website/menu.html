@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Menu - Restaurant Name</title>
+</head>
+<body>
+    <header>
+        <h1>Restaurant Name</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="order.html">Order</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+    <section class="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-item">
+            <h3>Burger</h3>
+            <p>Delicious burger with lettuce, tomato, and cheese.</p>
+            <p>$10.99</p>
+            <button onclick="addToCart('Burger', 10.99)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <h3>Pasta</h3>
+            <p>Classic pasta with marinara sauce and meatballs.</p>
+            <p>$12.99</p>
+            <button onclick="addToCart('Pasta', 12.99)">Add to Cart</button>
+        </div>
+        <!-- Add more menu items as needed -->
+    </section>
+    <footer>
+        <p>&copy; 2024 Restaurant Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function addToCart(itemName, itemPrice) {
+            alert(`Added ${itemName} to cart. Total: $${itemPrice}`);
+        }
+    </script>
+</body>
+</html>
